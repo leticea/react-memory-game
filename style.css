@@ -7,9 +7,23 @@
 }
 
 body {
+  height: 100vh;
   font-family: "Fira Mono", monospace;
   font-size: 18px;
   background-color: #212e3b;
   color: #fff;
-  line--height: 1;
+  line-height: 1;
+}
+
+pre {
+  text-align: center;
+  color: #4a93aa;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
 }
