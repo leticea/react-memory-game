@@ -15,7 +15,7 @@
   <img alt="" src=".github/image2.png">
 </p>
 
-## React Memory Game
+# React Memory Game
 
 ## 🚀 Tecnologias
 
