@@ -157,10 +157,50 @@ class App extends React.Component {
 
   compareUserInput(userNumber) {
     let currentQuestion = this.state.question,
-    mainLevel = this.state.level.main,
-    subLevel = this.state.level.sub,
-    wrong = this.state.wrong,
-    digit;
+      mainLevel = this.state.level.main,
+      subLevel = this.state.level.sub,
+      wrong = this.state.wrong,
+      digit;
     // Compare user input with current question
+    if (userNumber == currentQuestion) {
+      // if user input is correct
+      if (subLevel < 3) {
+        ++subLevel;
+      } else if (subLevel == 3) {
+        // Increase main level if sub level reaches 3
+        ++mainLevel;
+        subLevel = 1;
+      }
+    } else {
+      // If user input is incorrect, increament wrong count
+      wrong++;
+    }
+    digit = mainLevel + 2;
+    // Update state with new question, level and wrong count
+    this.setState({
+      question: btoa(this.randomGenerate(digit)),
+      level: { main: mainLevel, sub: subLevel },
+      wrong: wrong,
+    });
+  }
+
+  render() {
+    return (
+      // Render main component
+      React.createElement(
+        "div",
+        { className: "main" },
+        React.createElement(GenerateNumber, {
+          question: this.state.question,
+          level: this.state.level,
+          wrong: this.state.wrong,
+        }),
+        React.createElement(InputNumber, {
+          compareUserInput: this.compareUserInput,
+          wrong: this.state.wrong,
+          onReset: this.resetState,
+        })
+      )
+    );
   }
 }
