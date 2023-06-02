@@ -138,4 +138,29 @@ class App extends React.Component {
       wrong: 0,
     };
   }
+
+  resetState() {
+    // Reset the state of the component to the initial values
+    this.setState({
+      question: btoa(this.randomGenerate(2)),
+      level: { main: 1, sub: 1 },
+      wrong: 0,
+    });
+  }
+
+  randomGenerate(digit) {
+    let max = Math.pow(10, digit) - 1,
+      min = Math.pow(10, digit - 1);
+    // Generate a random number within the specified range
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  compareUserInput(userNumber) {
+    let currentQuestion = this.state.question,
+    mainLevel = this.state.level.main,
+    subLevel = this.state.level.sub,
+    wrong = this.state.wrong,
+    digit;
+    // Compare user input with current question
+  }
 }
