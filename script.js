@@ -10,4 +10,55 @@ class GenerateNumber extends React.Component {
       number.innerHTML = number.innerHTML.replace(/\w/gi, "&#183");
     }, time);
   }
+
+  componentDidMount() {
+    let number = document.getElementById("number");
+    setTimeout(() => {
+      number.innerHTML = number.innerHTML.replace(/\w|\W/gi, "&#183");
+    }, 1200);
+  }
+
+  render() {
+    return (
+      // Render the number box
+      React.createElement(
+        "div",
+        { className: "number-box" },
+        React.createElement(
+          "div",
+          { className: "info-box" },
+          React.createElement(
+            "p",
+            { className: "level" },
+            "Level: ",
+            this.props.level.main,
+            " - ",
+            this.props.level.sub
+          ),
+          React.createElement(
+            "p",
+            { className: "mistakes" },
+            "Wrong: ",
+            this.props.wrong,
+            "/3"
+          )
+        ),
+        React.createElement(
+          "p",
+          { className: "divider" },
+          "############################"
+        ),
+        React.createElement(
+          "p",
+          { className: "number", id: "number" },
+          this.props.wrong < 3 ? atob(this.props.question) : "????"
+        ),
+        React.createElement(
+          "p",
+          { className: "divider" },
+          "############################"
+        )
+      )
+    );
+  }
 }
