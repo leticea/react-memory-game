@@ -123,3 +123,19 @@ class InputNumber extends React.Component {
     return layout;
   }
 }
+
+class App extends React.Component {
+  constructor() {
+    super();
+    // Bind event handlers to the component instance
+    this.compareUserInput = this.compareUserInput.bind(this);
+    this.randomGenerate = this.randomGenerate.bind(this);
+    this.resetState = this.resetState.bind(this);
+    // Set the initial state of component
+    this.state = {
+      question: btoa(this.randomGenerate(2)),
+      level: { main: 1, sub: 1 },
+      wrong: 0,
+    };
+  }
+}
