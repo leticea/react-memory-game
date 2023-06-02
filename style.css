@@ -28,7 +28,8 @@ pre {
   flex-direction: column;
 }
 
-.input-box, .notif-box {
+.input-box,
+.notif-box {
   text-align: center;
 }
 
@@ -77,4 +78,6 @@ button {
   color: #f4c025;
 }
 
-
+.mistakes {
+  color: #f45957;
+}
