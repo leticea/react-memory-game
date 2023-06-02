@@ -53,4 +53,28 @@ button {
   text-transform: uppercase;
 }
 
+.number-box {
+  text-align: center;
+}
+
+.divider {
+  color: #5b727f;
+  margin: 20px 0;
+}
+
+.number {
+  font-size: 36px;
+  color: #f45957;
+}
+
+.info-box {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.level {
+  color: #f4c025;
+}
+
 
