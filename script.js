@@ -70,11 +70,56 @@ class InputNumber extends React.Component {
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
-
   handleUserInput(e) {
     e.preventDefault();
     // Get user input
     let userNumber = btoa(this.userNumber.value);
     this.userNumber.value = "";
+    // Pass the user input to the parent component for comparison
+    this.props.compareUserInput(userNumber);
+  }
+  handleReset() {
+    // Call the reset function provided by parent component
+    this.props.onReset();
+  }
+  render() {
+    let layout;
+    if (this.props.wrong < 3) {
+      // Render input box if user has not made 3 mistakes
+      layout = React.createElement(
+        "div",
+        { className: "input-box" },
+        React.createElement(
+          "form",
+          { onSubmit: this.handleUserInput },
+          "Number is:",
+          React.createElement("input", {
+            pattern: "[0-9]+",
+            type: "text",
+            ref: (ref) => (this.userNumber = ref),
+            required: true,
+            autoFocus: true,
+          }),
+          React.createElement("br", null),
+          React.createElement("br", null)
+        ),
+        React.createElement("button", { onClick: this.handleReset }, "Restart")
+      );
+    } else {
+      // Render a notification box if user has made 3 mistakes
+      layout = React.createElement(
+        "div",
+        { className: "notif-box" },
+        React.createElement(
+          "div",
+          { className: "notif" },
+          "Better luck next time!"
+        ),
+        React.createElement("br", null),
+        React.createElement("br", null),
+        React.createElement("button", { onClick: this.handleReset }, "Restart")
+      );
+    }
+    return layout;
   }
 }
