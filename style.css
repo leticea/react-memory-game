@@ -41,3 +41,16 @@ input {
   font-size: 20px;
   border-bottom: 1px dashed #5b727f;
 }
+
+button {
+  background-color: transparent;
+  border: 1px dashed #fff;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+
