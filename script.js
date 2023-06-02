@@ -62,3 +62,19 @@ class GenerateNumber extends React.Component {
     );
   }
 }
+
+class InputNumber extends React.Component {
+  constructor() {
+    super();
+    // Bind event handlers to the component instance
+    this.handleUserInput = this.handleUserInput.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+  }
+
+  handleUserInput(e) {
+    e.preventDefault();
+    // Get user input
+    let userNumber = btoa(this.userNumber.value);
+    this.userNumber.value = "";
+  }
+}
